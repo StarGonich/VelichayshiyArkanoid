@@ -47,11 +47,11 @@ func _on_next_level_button_pressed() -> void:
 	match LevelDefinitions.current_level:
 		1:
 			LevelDefinitions.current_level = 2
-			set_level(2)
+			#set_level(2)
 			get_tree().reload_current_scene()
 		2:
 			LevelDefinitions.current_level = 3
-			set_level(3)
+			#set_level(3)
 			get_tree().reload_current_scene()
 		3: 
 			get_tree().change_scene_to_file("res://Scenes/start_menu.tscn")

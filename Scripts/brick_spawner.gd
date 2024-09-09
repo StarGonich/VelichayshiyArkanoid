@@ -6,6 +6,7 @@ const ROWS = 6
 @onready var ui = $"../UI" as UI
 @onready var ball = $"../Ball" as Ball
 
+#@export var ui: UI
 @export var brick_scene: PackedScene 
 @export var margin: Vector2 = Vector2(8, 8)
 @export var spawn_start: Marker2D
@@ -41,10 +42,13 @@ func spawn_from_defintion():
 	match LevelDefinitions.current_level:
 		1: 
 			defintion = LevelDefinitions.level_1
+			ui.set_level(1)
 		2: 
 			defintion = LevelDefinitions.level_2
+			ui.set_level(2)
 		3: 
 			defintion = LevelDefinitions.level_3
+			ui.set_level(3)
 	
 	var test_brick = brick_scene.instantiate() as Brick
 	add_child(test_brick)
