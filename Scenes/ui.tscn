@@ -1,0 +1,241 @@
+[gd_scene load_steps=11 format=3 uid="uid://cv6s20n0uj2ps"]
+
+[ext_resource type="Script" path="res://Scenes/ui.gd" id="1_06v2e"]
+[ext_resource type="FontFile" uid="uid://cxyquv6ru2l6d" path="res://Assets/VT323-Regular.ttf" id="1_qooms"]
+[ext_resource type="Texture2D" uid="uid://bambewkyso5y6" path="res://UI_assets/Space_Game_GUI_PNG/PNG/Buttons/BTNs/Play_BTN.png" id="3_nhrk2"]
+[ext_resource type="Texture2D" uid="uid://d0u1dyfbppmph" path="res://UI_assets/Space_Game_GUI_PNG/PNG/You_Lose/Window.png" id="3_xpdx8"]
+[ext_resource type="Texture2D" uid="uid://cqhhqoocvj84u" path="res://UI_assets/Space_Game_GUI_PNG/PNG/Buttons/BTNs/Menu_BTN.png" id="4_2qx4h"]
+[ext_resource type="Texture2D" uid="uid://c0oppub1oni5y" path="res://UI_assets/Space_Game_GUI_PNG/PNG/You_Lose/Replay_BTN.png" id="4_uyx52"]
+[ext_resource type="Texture2D" uid="uid://b78e3ujaasopj" path="res://UI_assets/Space_Game_GUI_PNG/PNG/Pause/Header.png" id="5_qil4e"]
+[ext_resource type="Texture2D" uid="uid://d0yukebkqmos7" path="res://UI_assets/Space_Game_GUI_PNG/PNG/You_Lose/Header.png" id="6_lfwnp"]
+[ext_resource type="Texture2D" uid="uid://4wxm8pgpddsx" path="res://UI_assets/Space_Game_GUI_PNG/PNG/You_Win/Play_BTN.png" id="7_7ucte"]
+[ext_resource type="Texture2D" uid="uid://d2ofvo2sp34io" path="res://UI_assets/Space_Game_GUI_PNG/PNG/You_Win/Header.png" id="8_etu26"]
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_06v2e")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_qooms")
+theme_override_font_sizes/font_size = 32
+text = "Lifes: 3"
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_qooms")
+theme_override_font_sizes/font_size = 32
+text = "Level: 1"
+
+[node name="GameLostContainer" type="CenterContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/GameLostContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/GameLostContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -251.0
+offset_right = 470.0
+offset_bottom = 829.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(480, 0)
+texture = ExtResource("3_xpdx8")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/GameLostContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = 14.0
+offset_right = 212.0
+offset_bottom = 224.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(264, 0)
+
+[node name="RestartButton" type="TextureButton" parent="MarginContainer/GameLostContainer/Panel/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_uyx52")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/GameLostContainer/Panel/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ExitButtonLose" type="TextureButton" parent="MarginContainer/GameLostContainer/Panel/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_2qx4h")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/GameLostContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -226.5
+offset_top = 11.0
+offset_right = 226.5
+offset_bottom = 71.0
+grow_horizontal = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(226, 0)
+texture = ExtResource("6_lfwnp")
+
+[node name="LevelWonContainer" type="CenterContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/LevelWonContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/LevelWonContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -225.0
+offset_right = 470.0
+offset_bottom = 855.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(480, 0)
+texture = ExtResource("3_xpdx8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/LevelWonContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = 35.0
+offset_right = 264.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(264, 0)
+
+[node name="NextLevelButton" type="TextureButton" parent="MarginContainer/LevelWonContainer/Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_7ucte")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/LevelWonContainer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ExitButtonWin" type="TextureButton" parent="MarginContainer/LevelWonContainer/Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_2qx4h")
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/LevelWonContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.5
+offset_top = -106.0
+offset_right = 199.5
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(200, 0)
+texture = ExtResource("8_etu26")
+
+[node name="PauseMenu" type="CenterContainer" parent="MarginContainer"]
+process_mode = 2
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer/PauseMenu"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -264.0
+offset_top = 53.0
+offset_right = 264.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(264, 0)
+
+[node name="ContinueButton" type="TextureButton" parent="MarginContainer/PauseMenu/Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_nhrk2")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PauseMenu/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/PauseMenu/Panel/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_2qx4h")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = -154.0
+offset_right = 150.0
+offset_bottom = -95.0
+grow_horizontal = 2
+texture = ExtResource("5_qil4e")
+
+[connection signal="pressed" from="MarginContainer/GameLostContainer/Panel/HBoxContainer2/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GameLostContainer/Panel/HBoxContainer2/ExitButtonLose" to="." method="_on_exit_button_lose_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelWonContainer/Panel/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelWonContainer/Panel/HBoxContainer/ExitButtonWin" to="." method="_on_exit_button_win_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseMenu/Panel/HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PauseMenu/Panel/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
